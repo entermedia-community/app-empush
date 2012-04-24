@@ -1,0 +1,120 @@
+<div class="subcolumns">
+          <div class="c25l" id="left-col">
+          	
+
+			$pages.include("$apphome/components/sidebars/standard.html", $context)
+			
+      	 </div>
+         <div id="right-col">
+       	 	
+			<div class="ui-widget uipanel" id="view-picker">
+			<div class="ui-widget-header">Your Search for: $!hits.getSearchQuery().getName() ($!hits.size()) <a style="color:#fff; float: right; margin-right: 15px;" href="$home$apphome/views/search/edit/save.html?queryid=$hits.getSearchQuery().id&name=$hits.getSearchQuery().getName()">Add Search to Favorites</a></div>
+			<div id="view-picker-content" class="ui-widget-content search-view">
+					
+					<ul id="folders">
+						<li class="add">
+							<div class="folder"></div>
+							<a class="btn right">Add New Folder</a>
+						</li>
+						<li class="auto">
+							<div class="folder">
+								<div class="name">
+									<div class="alias" title="Alias">Alias</div>
+									<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+								</div>
+							</div>
+							<div class="monitor">
+								<span class="top">200 of 400 Files Uploaded!</span>
+								<div>
+									<div class="progress-bar-container">
+										<div class="progress"></div>
+									</div>
+									<div class="scan">
+										<a class="btn green">Scan</a>
+									</div>
+								</div>
+								<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
+							</div>
+							<div class="switch on"></div>
+						</li>
+						<li class="auto">
+							<div class="folder">
+								<div class="name">
+									<div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+									<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+								</div>
+							</div>
+							<div class="monitor">
+								<span class="top">200 of 400 Files Uploaded!</span>
+								<div>
+									<div class="progress-bar-container">
+										<div class="progress paused"></div>
+									</div>
+									<div class="scan">
+										<a class="btn green">Scan</a>
+									</div>
+								</div>
+								<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
+							</div>
+							<div class="switch"></div>
+						</li>
+						<li class="manual">
+							<div class="folder">
+								<div class="name">
+									<div class="alias" title="Alias">Alias</div>
+									<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+								</div>
+							</div>
+							<div class="monitor">
+								<span class="top">200 of 400 Files Uploaded!</span>
+								<div>
+									<div class="progress-bar-container">
+										<div class="progress"></div>
+									</div>
+									<div class="scan">
+										<a class="btn" style="width: 50px">Rescan</a>
+									</div>
+								</div>
+								<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
+							</div>
+							<div class="switch"></div>
+						</li>
+						<li class="manual">
+							<div class="folder">
+								<div class="name">
+									<div class="alias" title="Really Long Alias that is dumb and really long">Really Long Alias that is dumb and really long</div>
+									<div class="path" title="C:/Path/To/The/Files/Goes/Here">C:/Path/To/The/Files/Goes/Here</div>
+								</div>
+							</div>
+							<div class="monitor">
+								<span class="top">200 of 400 Files Uploaded!</span>
+								<div>
+									<div class="progress-bar-container">
+										<div class="progress paused"></div>
+									</div>
+									<div class="scan">
+										<a class="btn" style="width: 50px">Scan</a>
+									</div>
+								</div>
+								<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
+							</div>
+							<div class="switch on"></div>
+						</li>
+					</ul>				
+
+			</div></div>
+
+        </div>
+</div>
+
+
+<script>
+	$('.switch').click( function() {
+		if ( $(this).hasClass('on') ) {
+			$(this).removeClass('on');
+		} else {
+			$(this).addClass('on');
+		}
+	})
+		
+</script>
