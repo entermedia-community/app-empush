@@ -43,10 +43,12 @@
 
 <script>
 	$('#only-between').click(function(){
-		if ( $(this).attr('checked') == true ) {
+		if ( $(this).hasClass('on') ) {
+			$(this).removeClass('on');
 			$('#between').hide();
 			$('.note.between').show();
 		} else {
+			$(this).addClass('on');
 			$('.note.between').hide();
 			$('#between').show();
 		}

@@ -416,11 +416,6 @@ div#folders.add .folder {
 #between {
 	display: none;
 }
-.datepicker + img {
-	position: relative;
-	left: -30px;
-	top: -2px;
-}
 .fields .vshort {
 	width: 200px;
 }
