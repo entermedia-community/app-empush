@@ -1,0 +1,4 @@
+<page>
+	<property name="section">settings</property>
+	<inner-layout>${themeprefix}/layouts/assetlayout.html</inner-layout>
+</page>

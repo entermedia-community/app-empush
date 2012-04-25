@@ -4,56 +4,14 @@
 #set( $section = $content.section)
 
 #if ($user)
-<li #if( $section == "home" ) class="navselected" #end><a  href="$home$apphome/index.html">Folders</a></li>
+<li #if( $section == "folders" || $section == "home"  ) class="navselected" #end><a  href="$home$apphome/index.html">Folders</a></li>
 #end
 
 #if( $canviewupload )
  <li #if( $section == "assets" ) class="navselected" #end><a href="$home$apphome/views/categories/index.html" >Assets</a></li>
 #end
- <li #if( $section == "settings" ) class="navselected" #end><a href="$home$apphome/views/upload/index.html" >Settings</a></li>
+ <li #if( $section == "settings" ) class="navselected" #end><a href="$home$apphome/views/emp-settings/index.html" >Settings</a></li>
 #if ( $user )
 
 #end
 
-#if($canviewbasket)
-<li #if($section=="basket") class="navselected"  #end  style="float: right;">
-
-$pages.include("$apphome/components/basket/menuitem.html")
- 
-</li>
-#end
-#if ( $canmaximize )
-	<li style="float: right">
-		<a id="maximize">Maximize</a>
-	</li>
-#end	
- </ul>
- 	<script>
- 		$('#maximize').click( function(){
- 			html = $('#maximize').html()
- 			if ( html == 'Maximize' ) {
- 				$('#embody').addClass('maximize');
- 				$('#maximize').html('Minimize');
- 			} else {
- 				$('#embody').removeClass('maximize');
- 				$('#maximize').html('Maximize');
- 			}
- 		});		
- 	</script>
- 
-<div style="float:right; margin-top:-30px;">
-
-#if ($canquicksearch)
-<div id="searchform">
-<form id="search_form" action="$apphome/views/search/search.html" class="em-widget-content">
-	<input type="hidden" name="field" value="description" />
-	<input type="hidden" name="operation" value="startswith" />
-	#set( $input = "Search...")
-	#set( $input = $hits.getInput("description") )
-    <input type="text"  id="assetsearchinput" initialtext="Search..."  class="initialtext" name="description.value" value="$input" />
-</form>
-</div>
-#end
-
-
-</div>

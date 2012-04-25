@@ -210,7 +210,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 /* FOLDER LIST STYLES */
 
 #folders {
-	margin: -20px 0 0 -10px;
+	margin: -20px 0 0 -19px;
 	padding: 0;
 	width: 857px;
 }
@@ -225,7 +225,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 #folders li:nth-child(even) {
 	background: #f7f7f7;
 }
-.folder {
+#folders .folder {
 	background: url('../images/folder.png') 15px 8px no-repeat;
 	width: 260px;
 	height: 102px;
@@ -351,8 +351,80 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd5153', end
 	background: url('../images/switch.png') 0 0 no-repeat;
 }
 .add {
-	background-color: #fef9e6;
+	background-color: #fefaea;
 }
 .add a {
 	margin: 38px 20px 0 0;
+}
+div#folders .folder {
+	width: 857px;
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #ccc;
+	margin: -30px 0 20px 0;
+}
+div#folders .path, div#folders .alias {
+	width: 100%;
+}
+.fields {
+	margin: 30px 25px;
+}
+.fields label {
+	display: block;
+	margin: 20px 0 -8px 0;
+}
+.fields .note {
+	color: #666;
+	font-style: italic;
+	font-size: 11px;
+	margin: -6px 0 0 0;
+}
+.fields h3 {
+	display: none;
+}
+.fields label + select {
+	margin-top: 5px;
+}
+.fields select + .note {
+	margin-top: 5px;
+}
+.fields .field {
+	width: 500px;
+	color: #444;
+	font-size: 12px;
+}
+.fields .field.short {
+	width: 300px;
+}
+#folders.add {
+	background: none;
+}
+div#folders.add .folder {
+	background-color: #fefaea;
+}
+.fields input[type="checkbox"] {
+	margin: 20px 0 0 0;
+}
+.fields input[type="checkbox"] + span {
+	margin-left: 5px;	
+}
+.fields input[type="checkbox"]:checked + span {
+	color: #28bb03;
+}
+.fields input[type="checkbox"] + span + .note {
+	margin: 5px 0 20px 0;
+}
+#between {
+	display: none;
+}
+.datepicker + img {
+	position: relative;
+	left: -30px;
+	top: -2px;
+}
+.fields .vshort {
+	width: 200px;
+}
+.field-connector {
+	margin: 0 5px;
+	font-weight: bold;
 }

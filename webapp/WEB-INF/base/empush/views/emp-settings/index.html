@@ -1,0 +1,54 @@
+
+<div class="fields">
+	<form>
+		
+		<h2>Server Setup</h2>
+		
+		<label>[[IP]]</label>
+		<input class="field short" name="ip" value ="" />
+		<div class="note">[[Input the IP of the EnterMedia server that you wish to upload to.]]</div>
+		
+		<label>[[Username]]</label>
+		<input class="field short" name="username" value ="" />
+		
+		<label>[[Username]]</label>
+		<input class="field short" name="username" value ="" />
+		<div style="margin: 10px 0 0 197px;">
+		<input type="button" class="btn" value="Test Connection" />
+		</div>
+		
+	</form>
+	
+	<div class="hr"></div>
+	
+	<form>
+		
+		<h2>Scheduling</h2>
+		
+		<label>[[Upload Time]]</label>
+		<input id="only-between" type="checkbox" /> <span>Only Upload Between The Following Times</span>
+		<div class="note between">[[The Default behavior will always upload if an internet connection is available and files need to be synched.]]</div>
+		
+		<div id="between">		
+			<label>Upload Between</label>
+			<input class="field vshort" name="between1" value ="" />
+			<span class="field-connector">And</span>
+			<input class="field vshort" name="between2" value ="" />
+			<div class="note">[[Enter The hours between which you would like the uploads to take place.]]</div>
+		</div>
+		
+	</form>
+	
+</div>
+
+<script>
+	$('#only-between').click(function(){
+		if ( $(this).attr('checked') == true ) {
+			$('#between').hide();
+			$('.note.between').show();
+		} else {
+			$('.note.between').hide();
+			$('#between').show();
+		}
+	})
+</script>
