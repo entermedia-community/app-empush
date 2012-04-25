@@ -1,4 +1,3 @@
 <page>
-	<property name="section">folders</property>
 	<inner-layout>${themeprefix}/layouts/assetlayout.html</inner-layout>
 </page>

@@ -225,7 +225,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 #folders li:nth-child(even) {
 	background: #f7f7f7;
 }
-#folders li .folder {
+.folder {
 	background: url('../images/folder.png') 15px 8px no-repeat;
 	width: 260px;
 	height: 102px;
@@ -254,6 +254,9 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	position: relative;
 	top: 35px;
 	left: 125px;
+}
+.folder:hover .alias, .folder:hover .path {
+	color: #28bb03;
 }
 .folder .alias {
 	font-weight: bold;
