@@ -1,0 +1,8 @@
+<page>
+	<page-action name="DataEditModule.search" />
+	<property name="hitsname">pushrequests</property>
+	<property name="searchtype">pushrequest</property>
+	<property name="sortby">statusDown</property>
+	<page-action name="PageValue.loadPageVariable" bean="sizer" />	
+	
+</page>

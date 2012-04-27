@@ -1,4 +1,5 @@
 <page>
+	<property name="tab">pushsettings</property>
 	<property name="section">settings</property>
-	<inner-layout>${themeprefix}/layouts/helplayout.html</inner-layout>
+	<inner-layout>${themeprefix}/layouts/settingslayout.html</inner-layout>
 </page>

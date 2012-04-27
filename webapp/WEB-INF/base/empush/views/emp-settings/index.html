@@ -2,17 +2,22 @@
 <div class="fields">
 	<form>
 		
-		<h2>Server Setup</h2>
+		<h2>Push Server Setup</h2>
 		
 		<label>[[IP]]</label>
-		<input class="field short" name="ip" value ="" />
+		<input class="field short" name="push_server_url" value ="$mediaarchive.getCatalogSettingValue("push_server_url")" />
 		<div class="note">[[Input the IP of the EnterMedia server to which you wish to upload.]]</div>
 		
 		<label>[[Username]]</label>
-		<input class="field" style="width: 225px;" name="username" value ="" />
+		#set( $userid = $mediaarchive.getCatalogSettingValue("push_server_username") )
+		<input class="field" style="width: 225px;" name="push_server_username" value ="$userid" />
 		
-		<a class="btn">Edit User</a>
+		<a class="btn" href="$home$apphome/views/settings/users/usermanager/user/index.html?username=$userid" >Edit User</a>
 		
+		<label>[[Target Catalog Id]]</label>
+		<input class="field short" name="push_target_catalogid" value ="$mediaarchive.getCatalogSettingValue("push_target_catalogid")" />
+		<div class="note">[[The ID of the catalog you want to push to.]]</div>
+
 		<div style="margin: 10px 0 0 197px;">
 		<input type="button" class="btn" value="Test Connection" />
 		</div>
@@ -26,11 +31,13 @@
 	
 	<form>
 		
-		<h2>Auto Push</h2>
-	
-		<div class="switch on"></div>
+		<h2>Automatic Pushing</h2>
+
+		#set( $switch = $mediaarchive.getCatalogSettingValue("push_autopush") )
+		<div class="switch #if( $switch == "true")on #end"></div>
 		
-		<!-- hide if auto is off -->
+		<div class="note">[[Automatically add new assets to queue to be pushed.]]</div>
+		<!-- hide if auto is off 
 		<div id="autotimes" style="display: none;">
 			<label>[[Push Between]]</label>
 					
@@ -41,69 +48,41 @@
 	
 		</div>
 		
+		-->
 	</form>
 	
 	<div class="hr"></div>
 
 		<h2>Push Formats</h2>
 	
-<table>	
-<tr>
-		<td width="40px" class="emdatafield"> Default Profile </td>
-		<td id="detail_convertpreset" class="emdatafieldvalue ">
 		<input type="hidden" value="convertpreset" name="field">
 		<div id="allnone">
-			(<a href="javascript:selectall('publishdestinationcheckbox')">all</a><a href="javascript:selectnone('publishdestinationcheckbox')">none</a>)
+##			(<a href="javascript:selectall('publishdestinationcheckbox')">all</a><a href="javascript:selectnone('publishdestinationcheckbox')">none</a>)
 		</div>
+
 <table>
-			<tbody>
-				<tr>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="0">
-					Original Format </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="largeimage">
-					Image Large </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="mediumimage">
-					Image Medium </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="thumbimage">
-					Image Thumbnail </td>
-				</tr>
-				<tr>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="portraitcrop">
-					Portrait Crop </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="largedocument">
-					Document Preview </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="mp3audio">
-					Mp3 Audio </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewffmpeg">
-					Video MP4 Preview </td>
-				</tr>
-				<tr>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewflv">
-					Video FLV </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="2">
-					Video HQ AVI </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="1">
-					Video HQ MP4 </td>
-					<td>
-					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewffmpegthumb">
-					Video Thumb </td>
-				</tr>
-				<tr></tr>
-			</tbody>
-		</table>
-		</td> </tr>
+	<tr>
+	#set( $lsearcher = $searcherManager.getSearcher($catalogid,"convertpreset"))
+	#set ($query = $lsearcher.createSearchQuery())
+	#set ($o = $query.addMatches("id", "*"))
+	$query.setSortBy("ordering")
+
+	#set( $types = $lsearcher.search($query) )
+	
+	#foreach( $type in $types )
+		#set( $key = $type.id)
+			<td>
+	  	<input type="checkbox" class="${searchtype}checkbox" name="${detail.id}.value" value="$key"
+	    #if ($checked.contains($key)) checked #end >
+		$type
+	</td> 
+	#if ($velocityCount % 4 == 0) </tr> <tr> #end	    		
+#end
+</tr>
 </table>
+
+		<a class="btn" href="$home$apphome/views/settings/applicationsetup/lists/transcoding/index.html" >Edit Presets</a>
+
 	<input type="button" class="btn" style="margin-top: 15px" value="Save" /> 
 </div>
 
