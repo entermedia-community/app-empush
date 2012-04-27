@@ -9,7 +9,7 @@
 		<div class="note">[[Input the IP of the EnterMedia server to which you wish to upload.]]</div>
 		
 		<label>[[Username]]</label>
-		<input class="field short" name="username" value ="" />
+		<input class="field" style="width: 225px;" name="username" value ="" />
 		
 		<a class="btn">Edit User</a>
 		
@@ -31,23 +31,20 @@
 		<div class="switch on"></div>
 		
 		<!-- hide if auto is off -->
-		
-		<label>[[Auto Push Times]]</label>
-		<input id="only-between" type="checkbox" /> <span>Only Upload Between The Following Times</span>
-		<div class="note between">[[The Default behavior will always upload if an internet connection is available and files need to be synched.]]</div>
-		
-		<div id="between">		
-			<label>Upload Between</label>
+		<div id="autotimes" style="display: none;">
+			<label>[[Push Between]]</label>
+					
 			<input class="field vshort" name="between1" value ="" />
 			<span class="field-connector">And</span>
 			<input class="field vshort" name="between2" value ="" />
 			<div class="note">[[Enter the hours between which you would like the uploads to take place.]]</div>
+	
 		</div>
 		
 	</form>
 	
 	<div class="hr"></div>
-	
+
 		<h2>Push Formats</h2>
 	
 <table>	
@@ -111,15 +108,15 @@
 </div>
 
 <script>
-	$('#only-between').click(function(){
+
+	$('.switch').click(function(){
 		if ( $(this).hasClass('on') ) {
 			$(this).removeClass('on');
-			$('#between').hide();
-			$('.note.between').show();
+			$('#autotimes').show();
 		} else {
 			$(this).addClass('on');
-			$('.note.between').hide();
-			$('#between').show();
-		}
-	})
+			$('#autotimes').hide();
+		}	
+	});
+
 </script>

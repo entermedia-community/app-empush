@@ -256,6 +256,7 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	position: relative;
 	top: 35px;
 	left: 125px;
+	width: 600px;
 }
 .folder:hover .alias, .folder:hover .path {
 	color: #28bb03;
@@ -264,17 +265,15 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 	font-weight: bold;
 	color: #000;
 	font-size: 16px;
-	width: 120px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	margin-top: -4px;
 }
 .folder .path {
 	font-size: 12px;
 	color: #999;
-	width: 120px;
-	overflow: hidden;
-	text-overflow: ellipsis;
+}
+.folder .last-activity {
+	color: #aaa;
+	font-size: 11px;
 }
 .monitor {
 	background: #eeeeee;
@@ -328,9 +327,6 @@ background: -ms-linear-gradient(top, rgba(205,81,83,1) 0%,rgba(207,89,89,1) 2%,r
 background: linear-gradient(top, rgba(205,81,83,1) 0%,rgba(207,89,89,1) 2%,rgba(224,114,113,1) 4%,rgba(247,139,137,1) 6%,rgba(254,142,140,1) 8%,rgba(251,104,97,1) 14%,rgba(255,89,86,1) 16%,rgba(253,75,71,1) 18%,rgba(255,65,57,1) 20%,rgba(254,47,37,1) 22%,rgba(255,35,24,1) 24%,rgba(255,26,17,1) 27%,rgba(253,12,3,1) 29%,rgba(255,4,0,1) 33%,rgba(246,4,0,1) 47%,rgba(229,4,0,1) 59%,rgba(222,5,0,1) 67%,rgba(208,4,5,1) 80%,rgba(191,12,8,1) 94%,rgba(188,15,11,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd5153', endColorstr='#bc0f0b',GradientType=0 ); /* IE6-9 */
 }
-.auto .scan {
-	display: none;
-}
 .manual .progress-bar-container {
 	width: 370px;
 }
@@ -339,14 +335,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cd5153', end
 }
 .scan {
 	float: right;
-	margin-top: -33px;
+	margin-top: 33px;
+	margin-right: 20px;
 }
+.scan .btn, .delete .btn {
+	text-align: center;
+	width: 60px;
+}
+.delete {
+	margin-top: -8px;
+	float: right;
+	margin-right: 20px;
+}
+
 .switch {
 	background: url('../images/switch.png') 0 -31px no-repeat;
 	width: 64px;
 	height: 31px;
-	float: left;
-	margin: 33px 0 0 20px;
+	margin: 10px 0;
 	cursor: pointer;
 }
 .switch.on {
@@ -368,7 +374,10 @@ div#folders .path, div#folders .alias {
 	width: 100%;
 }
 .fields {
-	margin: 30px 25px;
+	margin: 30px 30px;
+}
+#right-col > .fields {
+	margin: 10px;
 }
 .fields label {
 	display: block;
@@ -424,6 +433,10 @@ div#folders.add .folder {
 .field-connector {
 	margin: 0 5px;
 	font-weight: bold;
+}
+.pause {
+	margin: -33px 0 0 0;
+	float: right;
 }
 
 /* QUEUE STYLES */
@@ -539,16 +552,14 @@ div#folders.add .folder {
 	margin: -20px 0 0 -20px;
 }
 .overall .monitor {
-	width: 690px;
+	width: 785px;
 	margin-left: 20px;
 	margin-top: 22px;
 }
 .overall .progress-bar-container {
-	width: 520px;
+	width: 695px;
 }
 .overall .progress {
-		
+	width: 682px;
 }
-.overall .switch {
-	float: right;
-}
+
