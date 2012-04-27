@@ -1,0 +1,34 @@
+
+<div class="overall">
+	<div class="monitor">
+		<span class="top">$pushrequestscomplete.size() of $pushrequests.size() Files Uploaded!</span>
+		<div>
+			<div class="progress-bar-container">
+				<div class="progress"></div>
+			</div>
+			<div class="scan">
+			#set( $enabled = $mediaarchive.getCatalogSettingValue("push_masterswitch") )
+			#if( $enabled == "true")
+			
+				<a class="btn ajax" targetdivinner="queuestatuslist" style="width: 50px" href="$home$apphome/components/push/togglepush.html">Pause</a>
+			#else
+				<a class="btn ajax" targetdivinner="queuestatuslist" style="width: 50px" href="$home$apphome/components/push/togglepush.html">Resume</a>
+			#end
+			
+		</div>
+		</div>
+		##<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
+	</div>
+</div>
+
+
+<script>
+	$('.switch').click( function() {
+		if ( $(this).hasClass('on') ) {
+			$(this).removeClass('on');
+		} else {
+			$(this).addClass('on');
+		}
+	})
+		
+</script>

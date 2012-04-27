@@ -11,21 +11,28 @@
 		<label>[[Username]]</label>
 		<input class="field short" name="username" value ="" />
 		
-		<label>[[Password]]</label>
-		<input class="field short" name="password" value ="" />
+		<a class="btn">Edit User</a>
+		
 		<div style="margin: 10px 0 0 197px;">
 		<input type="button" class="btn" value="Test Connection" />
 		</div>
 		
 	</form>
 	
+	
+	
+	
 	<div class="hr"></div>
 	
 	<form>
 		
-		<h2>Scheduling</h2>
+		<h2>Auto Push</h2>
+	
+		<div class="switch on"></div>
 		
-		<label>[[Upload Time]]</label>
+		<!-- hide if auto is off -->
+		
+		<label>[[Auto Push Times]]</label>
 		<input id="only-between" type="checkbox" /> <span>Only Upload Between The Following Times</span>
 		<div class="note between">[[The Default behavior will always upload if an internet connection is available and files need to be synched.]]</div>
 		
@@ -37,10 +44,70 @@
 			<div class="note">[[Enter the hours between which you would like the uploads to take place.]]</div>
 		</div>
 		
-		<input type="button" class="btn" style="margin-top: 15px" value="Save" /> 
-		
 	</form>
 	
+	<div class="hr"></div>
+	
+		<h2>Push Formats</h2>
+	
+<table>	
+<tr>
+		<td width="40px" class="emdatafield"> Default Profile </td>
+		<td id="detail_convertpreset" class="emdatafieldvalue ">
+		<input type="hidden" value="convertpreset" name="field">
+		<div id="allnone">
+			(<a href="javascript:selectall('publishdestinationcheckbox')">all</a><a href="javascript:selectnone('publishdestinationcheckbox')">none</a>)
+		</div>
+<table>
+			<tbody>
+				<tr>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="0">
+					Original Format </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="largeimage">
+					Image Large </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="mediumimage">
+					Image Medium </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="thumbimage">
+					Image Thumbnail </td>
+				</tr>
+				<tr>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="portraitcrop">
+					Portrait Crop </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="largedocument">
+					Document Preview </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="mp3audio">
+					Mp3 Audio </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewffmpeg">
+					Video MP4 Preview </td>
+				</tr>
+				<tr>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewflv">
+					Video FLV </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="2">
+					Video HQ AVI </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="1">
+					Video HQ MP4 </td>
+					<td>
+					<input type="checkbox" class="publishdestinationcheckbox" name="convertpreset.value" id="publishdestination.${item.id}" value="previewffmpegthumb">
+					Video Thumb </td>
+				</tr>
+				<tr></tr>
+			</tbody>
+		</table>
+		</td> </tr>
+</table>
+	<input type="button" class="btn" style="margin-top: 15px" value="Save" /> 
 </div>
 
 <script>
