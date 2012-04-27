@@ -3,15 +3,13 @@
 
 #set( $section = $content.section)
 
-#if ($user)
-<li #if( $section == "folders" || $section == "home"  ) class="navselected" #end><a  href="$home$apphome/index.html">Folders</a></li>
-#end
+ <li #if( $section == "queue" ) class="navselected" #end><a href="$home$apphome/views/queue/index.html" >Queue</a></li>
 
-#if( $canviewupload )
+<li #if( $section == "folders"   ) class="navselected" #end><a  href="$home$apphome/views/folders/index.html">Folders</a></li>
+
  <li #if( $section == "assets" ) class="navselected" #end><a href="$home$apphome/views/categories/index.html" >Assets</a></li>
-#end
+
  <li #if( $section == "settings" ) class="navselected" #end><a href="$home$apphome/views/emp-settings/index.html" >Settings</a></li>
-#if ( $user )
 
-#end
 
+</ul>

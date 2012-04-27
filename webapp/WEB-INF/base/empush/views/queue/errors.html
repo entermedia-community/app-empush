@@ -1,0 +1,31 @@
+
+$pages.include("$home$apphome/views/queue/menu.html")
+
+
+<ul id="queue" class="fwlist errors">
+	<li><a href="#">
+		<div class="name jpg"><span>filename.jpg</span><span class="error-details"> - This is the error details.</span></div>
+		
+	</a></li>
+	<li><a href="#">
+		<div class="name jpg"><span>filename.jpg</span><span class="error-details"> - This is the error details.</span></div>
+		
+	</a></li>
+	<li><a href="#">
+		<div class="name jpg"><span>filename.jpg</span><span class="error-details"> - This is the error details.</span></div>
+		
+	</a></li>
+	<li><a href="#">
+		<div class="name jpg"><span>filename.jpg</span><span class="error-details"> - This is the error details.</span></div>
+		
+	</a></li>
+	
+</ul>
+
+
+<script>
+	$('#queue li').click(function(){
+		$('#queue li').removeClass('selected');
+		$(this).addClass('selected');
+	})
+</script>

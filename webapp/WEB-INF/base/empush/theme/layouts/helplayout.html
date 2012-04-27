@@ -1,0 +1,12 @@
+<div class="subcolumns">
+          <div class="c25l" id="left-col">
+			#set ( $section = $content.section )
+			$pages.include("$apphome/components/sidebars/help/${section}.html", $context)
+
+         </div>
+         <div id="right-col">	
+
+		$pages.includeContent()
+
+         </div>
+</div>
