@@ -440,11 +440,14 @@ div#folders.add .folder {
 }
 
 /* QUEUE STYLES */
-
+#queue {
+	margin-bottom: 10px;
+}
 #queue li a {
 	height: 45px;
 	display: block;
 }
+
 #queue .name {
 	color: #999;
 	padding-left: 40px;
@@ -467,8 +470,22 @@ div#folders.add .folder {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.p, .filesize {
+.p, #queue .filesize {
 	color: #999;
+}
+#queue li:first-child .status {
+	display: none;
+}
+.status {
+	font-weight: bold;
+	font-size: 10px !important;
+	margin-left: 5px;
+}
+.c-3readyforpush {
+	color: #28bb03 !important;
+}
+.c-2converting {
+	color: #ec9435 !important;
 }
 .p {
 	display: none;
@@ -476,7 +493,7 @@ div#folders.add .folder {
 #queue li:first-child .p {
 	display: inline;
 }
-.filesize {
+#queue .filesize {
 	float: right;
 	margin-right: 20px;
 }
