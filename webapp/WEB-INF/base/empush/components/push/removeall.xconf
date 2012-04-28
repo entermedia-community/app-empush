@@ -1,0 +1,5 @@
+<page>
+	<path-action name="SyncModule.clearQueue" />
+	
+	<inner-layout />
+</page>

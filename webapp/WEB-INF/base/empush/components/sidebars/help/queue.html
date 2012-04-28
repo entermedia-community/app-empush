@@ -3,10 +3,18 @@
 	<div  class="ui-widget-header">Queue Manager</div>
 	<div  class="ui-widget-content">
 		<p>
-			Here you can do stuff./
+			Add Assets will find missing assets that have not already been added to the queue.
 		</p>
 			##<a class="btn red ajax"  targetdivinner="queuestatus" href="$home$apphome/components/push/clearqueue.html">Clear Queue</a>
-		<a class="ajax btn" targetdivinner="queuestatus" style="width: 50px" href="$home$apphome/components/push/requeue.html">Requeue</a>
+		<a class="ajax btn" targetdivinner="queuestatus"  href="$home$apphome/components/push/requeue.html">Add Assets</a>
 		<div id="queuestatus"></div>
+
+		<p>
+			Remove All clears existing push requests.
+		</p>
+		<a class="ajax btn" targetdivinner="removequeuestatus"  href="$home$apphome/components/push/removeall.html">Remove All</a>
+
+		<div id="removequeuestatus"></div>
+
 	</div>	
 </div>

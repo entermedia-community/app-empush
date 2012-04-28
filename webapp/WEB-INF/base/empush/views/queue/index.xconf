@@ -4,5 +4,6 @@
 	<property name="searchtype">pushrequest</property>
 	<property name="sortby">statusDown</property>
 	<page-action name="PageValue.loadPageVariable" bean="sizer" />	
+	<page-action name="PageValue.loadPageVariable" bean="mathutil" class="org.openedit.entermedia.util.MathUtils" />	
 	
 </page>

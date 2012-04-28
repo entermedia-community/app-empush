@@ -3,8 +3,10 @@
 	<div class="monitor">
 		<span class="top">$pushrequestscomplete.size() of $pushrequests.size() Files Uploaded!</span>
 		<div>
+			#set( $total = 685 * $mathutil.getPercentage($pushrequestscomplete.size() , $pushrequests.size()))
+			
 			<div class="progress-bar-container">
-				<div class="progress"></div>
+				<div class="progress" style="width: ${total}px;"></div>
 			</div>
 			<div class="pause">
 			#set( $enabled = $mediaarchive.getCatalogSettingValue("push_masterswitch") )

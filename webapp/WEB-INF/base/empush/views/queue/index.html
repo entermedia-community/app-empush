@@ -1,16 +1,16 @@
 
 <div id="queuestatuslist" class="ajaxstatus" ajaxpath="$home$apphome/views/queue/index.html?oemaxlevel=1">
 
-$pages.include("$apphome/views/queue/overall-progress.html?field=status&status.value=published&operation=matches",$context)
+$pages.include("$apphome/views/queue/overall-progress.html?field=status&status.value=1pushcomplete&operation=matches",$context)
 
 <ul id="queue" class="fwlist">
 	#foreach( $request in $pushrequests.getPageOfHits() )
 		#set( $size = $sizer.inEnglish($request.get("assetfilesize") ) )
 		#set( $asset = $mediaarchive.getAssetBySourcePath($request.sourcePath) )
-	<li>
+	<li class="c-${request.status}">
 		<a href="$home$apphome/views/assets/$asset.sourcePath/index.html">
 			<div class="name default $asset.fileformat" title="$asset.sourcePath ($size)">
-				<span>$request.assetname </span><span>( $!searcherManager.getData($catalogid,"push/pushstatus",$request.status) )</span>
+				<span>$request.assetname </span><span class="status c-${request.status}">$!searcherManager.getData($catalogid,"push/pushstatus",$request.status)</span>
 				<span class="p"> (</span><span class="filesize">$size</span><span class="p">)</span>
 			</div>
 			#set( $percent = $request.get("percentage"))
@@ -18,11 +18,14 @@ $pages.include("$apphome/views/queue/overall-progress.html?field=status&status.v
 			<div class="progress-bar-container">
 				<div class="progress"></div>
 			</div>
-				<div class="percentage">7%</div>
+				<div class="percentage">${percent}%</div>
 			#end
 		</a>
 	</li>
 	#end
 </ul>
+
+$context.putPageValue("hits", $pushrequests)
+$pages.include("$apphome/views/queue/pages.html", $context )
 
 </div>

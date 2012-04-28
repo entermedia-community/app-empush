@@ -1,41 +1,41 @@
 
 <div class="fields">
-	<form>
+	<form name="settingssave" method="post" action="$home$apphome/views/emp-settings/save.html">
 		
 		<h2>Push Server Setup</h2>
 		
 		<label>[[IP]]</label>
-		<input class="field short" name="push_server_url" value ="$mediaarchive.getCatalogSettingValue("push_server_url")" />
+		<input type="hidden" name="field" value="push_server_url" />
+		<input class="field short" name="push_server_url.value" value ="$mediaarchive.getCatalogSettingValue("push_server_url")" />
 		<div class="note">[[Input the IP of the EnterMedia server to which you wish to upload.]]</div>
 		
 		<label>[[Username]]</label>
 		#set( $userid = $mediaarchive.getCatalogSettingValue("push_server_username") )
-		<input class="field" style="width: 225px;" name="push_server_username" value ="$userid" />
+		<input type="hidden" name="field" value="push_server_username" />
+		<input class="field" style="width: 225px;" name="push_server_username.value" value ="$userid" />
 		
 		<a class="btn" href="$home$apphome/views/settings/users/usermanager/user/index.html?username=$userid" >Edit User</a>
 		
 		<label>[[Target Catalog Id]]</label>
-		<input class="field short" name="push_target_catalogid" value ="$mediaarchive.getCatalogSettingValue("push_target_catalogid")" />
+		<input type="hidden" name="field" value="push_target_catalogid" />
+		<input class="field short" name="push_target_catalogid.value" value ="$mediaarchive.getCatalogSettingValue("push_target_catalogid")" />
 		<div class="note">[[The ID of the catalog you want to push to.]]</div>
 
-		<div style="margin: 10px 0 0 197px;">
-		<input type="button" class="btn" value="Test Connection" />
+		<div>
+##		<input type="button" class="btn" value="Test Connection" />
 		</div>
-		
-	</form>
-	
-	
 	
 	
 	<div class="hr"></div>
 	
-	<form>
-		
 		<h2>Automatic Pushing</h2>
+		<input type="hidden" name="field" value="push_autopush" />
 
 		#set( $switch = $mediaarchive.getCatalogSettingValue("push_autopush") )
-		<div class="switch #if( $switch == "true")on #end"></div>
+		<div target="push_autopush" class="switch #if( $switch && $switch == "true")on #end"></div>
+		<input type="hidden" id="push_autopush" name="push_autopush.value" value="$switch" />
 		
+
 		<div class="note">[[Automatically add new assets to queue to be pushed.]]</div>
 		<!-- hide if auto is off 
 		<div id="autotimes" style="display: none;">
@@ -49,16 +49,16 @@
 		</div>
 		
 		-->
-	</form>
 	
 	<div class="hr"></div>
 
 		<h2>Push Formats</h2>
 	
-		<input type="hidden" value="convertpreset" name="field">
-		<div id="allnone">
+		<input type="hidden" name="field" value="push_convertpresets" >
+##		<div id="allnone">
 ##			(<a href="javascript:selectall('publishdestinationcheckbox')">all</a><a href="javascript:selectnone('publishdestinationcheckbox')">none</a>)
-		</div>
+##		</div>
+		<a class="btn" href="$home$apphome/views/settings/applicationsetup/lists/transcoding/index.html" >Edit Presets</a>
 
 <table>
 	<tr>
@@ -67,34 +67,36 @@
 	#set ($o = $query.addMatches("id", "*"))
 	$query.setSortBy("ordering")
 
-	#set( $types = $lsearcher.search($query) )
-	
+	#set( $values = $mediaarchive.getCatalogSettingValues("push_convertpresets") )
+	#set( $types = $lsearcher.search($query) )	
 	#foreach( $type in $types )
 		#set( $key = $type.id)
 			<td>
-	  	<input type="checkbox" class="${searchtype}checkbox" name="${detail.id}.value" value="$key"
-	    #if ($checked.contains($key)) checked #end >
+	  	<input type="checkbox" name="push_convertpresets.value" value="$key"
+	    #if ($values.contains($key)) checked #end >
 		$type
 	</td> 
 	#if ($velocityCount % 4 == 0) </tr> <tr> #end	    		
 #end
 </tr>
 </table>
-
-		<a class="btn" href="$home$apphome/views/settings/applicationsetup/lists/transcoding/index.html" >Edit Presets</a>
-
-	<input type="button" class="btn" style="margin-top: 15px" value="Save" /> 
+	<input type="submit" class="btn" style="margin-top: 15px" value="Save" /> 
 </div>
+
+</form>
 
 <script>
 
 	$('.switch').click(function(){
+		var target = $(this).attr("target");
 		if ( $(this).hasClass('on') ) {
 			$(this).removeClass('on');
 			$('#autotimes').show();
+			$("#" + target).attr("value","false");
 		} else {
 			$(this).addClass('on');
 			$('#autotimes').hide();
+			$("#" + target).attr("value","true");
 		}	
 	});
 
