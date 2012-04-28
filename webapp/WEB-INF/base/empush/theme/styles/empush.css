@@ -441,7 +441,7 @@ div#folders.add .folder {
 
 /* QUEUE STYLES */
 #queue {
-	margin-bottom: 10px;
+	margin: 0 0 10px -20px;
 }
 #queue li a {
 	height: 45px;
@@ -458,10 +458,10 @@ div#folders.add .folder {
 #queue li a:hover {
 	background: #f1f1f1;
 }
-#queue li:first-child a {
+#queue li.c-4beingpushed a {
 	background: #fefaea;
 }
-#queue li:first-child .name {
+#queue li.c-4beingpushed .name {
 	width: 300px;
 	float: left;
 	color: #444;
@@ -473,7 +473,7 @@ div#folders.add .folder {
 .p, #queue .filesize {
 	color: #999;
 }
-#queue li:first-child .status {
+#queue li.c-4beingpushed .status {
 	display: none;
 }
 .status {
@@ -490,14 +490,14 @@ div#folders.add .folder {
 .p {
 	display: none;
 }
-#queue li:first-child .p {
+#queue li.c-4beingpushed .p {
 	display: inline;
 }
 #queue .filesize {
 	float: right;
 	margin-right: 20px;
 }
-#queue li:first-child .filesize {
+#queue li.c-4beingpushed .filesize {
 	float: none;
 	margin-right: 0;
 }
@@ -519,7 +519,7 @@ div#folders.add .folder {
 	left: 4px;
 	color: #28bb03;
 }
-#queue li:first-child .progress-bar-container, #queue li:first-child .percentage {
+#queue li.c-4beingpushed .progress-bar-container, #queue li.c-4beingpushed .percentage {
 	display: block;	
 }
 #queue .name span {
@@ -563,7 +563,7 @@ div#folders.add .folder {
 /* OVERALL STYLES */
 
 .overall {
-	height: 140px;
+	height: 120px;
 	background: #222 url('../images/asset-bg.png');
 	box-shadow: inset 0px 0px 60px 15px rgba(0, 0, 0, .8);
 	margin: -20px 0 0 -20px;
