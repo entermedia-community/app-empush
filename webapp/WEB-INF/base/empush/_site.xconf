@@ -9,7 +9,8 @@
   <style id="jqueryui" href="${themeprefix}/styles/jquery-ui.css"/>
   <style id="colors" href="${themeprefix}/styles/colors.css"/>
   <style id="app-css" href="${themeprefix}/styles/theme.css"/>
-   <style id="empush-css" href="${themeprefix}/styles/empush.css"/>
+  <style id="empush-css" href="${themeprefix}/styles/empush.css"/>
+  <style id="custom-css" href="${themeprefix}/styles/custom.css"/>
     
   <script id="jquery" src="/${applicationid}/components/javascript/jquery-1.7.1.min.js"/>
   <script id="jquery-ui" src="/${applicationid}/components/javascript/jquery-ui-1.8.12.custom.min.js"/>
@@ -26,9 +27,7 @@
   <property name="title">EM Push</property>
   <property name="showremoveselections">false</property>
   <property name="showaddselections">true</property>
- <!--
-  <property name="mastergroup">video</property>
- -->
+
   <property name="parentapplicationid">media</property>
   <property name="catalogid">media/catalogs/public</property>
   <property name="section">home</property>
@@ -36,19 +35,12 @@
   <property name="applicationid">empush</property>
 
   <permission name="view">
-  	<boolean value="true" />
+  	<user />
   </permission>
   
-  <permission name="publish">
-  	<boolean value="false" />
-  </permission>
-  <permission name="quicksearch">
-  	<boolean value="false" />
-  </permission>
   <permission name="maximize">
   	<boolean value="false" />
   </permission>
   
-  <style id="custom-css" href="${themeprefix}/styles/custom.css"/>
   
 </page>

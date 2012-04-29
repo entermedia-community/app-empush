@@ -21,9 +21,14 @@
 		<input class="field short" name="push_target_catalogid.value" value ="$mediaarchive.getCatalogSettingValue("push_target_catalogid")" />
 		<div class="note">[[The ID of the catalog you want to push to.]]</div>
 
-		<div>
+		<label>[[Asset ID Prefix]]</label>
+		<input type="hidden" name="field" value="push_asset_prefix" />
+		<input class="field short" name="push_asset_prefix.value" value ="$!mediaarchive.getCatalogSettingValue("push_asset_prefix")" />
+		<div class="note">[[Added to the start of the asset ID for uploading]]</div>
+
+##		<div>
 ##		<input type="button" class="btn" value="Test Connection" />
-		</div>
+##		</div>
 	
 	
 	<div class="hr"></div>

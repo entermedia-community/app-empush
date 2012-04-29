@@ -1,4 +1,0 @@
-<page>
-	<property name="section">folders</property>
-	<inner-layout>${themeprefix}/layouts/helplayout.html</inner-layout>
-</page>
