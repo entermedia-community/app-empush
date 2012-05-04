@@ -8,9 +8,9 @@ $pages.include("$apphome/views/queue/overall-progress.html?field=status&status.v
 		#set( $size = $sizer.inEnglish($request.get("assetfilesize") ) )
 		#set( $asset = $mediaarchive.getAssetBySourcePath($request.sourcePath) )
 	<li class="c-${request.status}">
-		<a href="$home$apphome/views/assets/$asset.sourcePath/index.html">
+		<a href="$home$apphome/views/assets/$asset.sourcePath/index.html"  >
 			<div class="name default $asset.fileformat" title="$asset.sourcePath ($size)">
-				<span>$request.assetname </span><span class="status c-${request.status}">$!searcherManager.getData($catalogid,"push/pushstatus",$request.status)</span>
+				<span>$request.assetname </span><span class="status c-${request.status}" #if( $request.errordetails ) title="$request.errordetails" #end>$!searcherManager.getData($catalogid,"push/pushstatus",$request.status)</span>
 				<span class="p"> (</span><span class="filesize">$size</span><span class="p">)</span>
 			</div>
 			#set( $percent = $request.get("percentage"))
