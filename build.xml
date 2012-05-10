@@ -31,7 +31,7 @@
 
 	<target name="zip" >
 		<zip destfile="${deployDir}/${appname}.zip" >
-			<zipfileset dir="${webapp}/WEB-INF/base/empush" prefix="/WEB-INF/base/empush" />
+			<zipfileset dir="${webapp}/WEB-INF/base" prefix="/WEB-INF/base" />
 		</zip>
 	  </target>
 	   
