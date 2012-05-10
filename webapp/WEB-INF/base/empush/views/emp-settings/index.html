@@ -4,10 +4,15 @@
 		
 		<h2>Push Server Setup</h2>
 		
-		<label>[[IP]]</label>
+		#set( $enabled = $mediaarchive.getCatalogSettingValue("push_masterswitch") )
+		#if( $enabled != "true")
+			<h4>Push Queue is currently paused</h4>
+		#end
+		
+		<label>[[URL]]</label>
 		<input type="hidden" name="field" value="push_server_url" />
 		<input class="field short" name="push_server_url.value" value ="$mediaarchive.getCatalogSettingValue("push_server_url")" />
-		<div class="note">[[Input the IP of the EnterMedia server to which you wish to upload.]]</div>
+		<div class="note">[[Input the URL of the EnterMedia server to which you wish to upload. http://demo.entermediasoftware.com]]</div>
 		
 		<label>[[Username]]</label>
 		#set( $userid = $mediaarchive.getCatalogSettingValue("push_server_username") )
