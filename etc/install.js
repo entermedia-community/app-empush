@@ -12,18 +12,11 @@ var zip = "http://dev.entermediasoftware.com/jenkins/job/" + appname + "/lastSuc
 var root = moduleManager.getBean("root").getAbsolutePath();
 var tmp = root + "/WEB-INF/tmp";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 log.add("1. GET THE LATEST ZIP FILE for " + appname);
 var downloader = new Downloader();
 downloader.download( zip, tmp + "/" + appname + ".zip");
 
-<<<<<<< HEAD
 var files = new FileUtils();
-=======
->>>>>>> origin/master
 files.deleteAll( root + "/WEB-INF/base/" + foldername);
 
 log.add("2. UNZIP WAR FILE");
