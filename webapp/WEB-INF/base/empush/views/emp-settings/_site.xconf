@@ -1,5 +1,6 @@
 <page>
 	<property name="tab">pushsettings</property>
 	<property name="section">settings</property>
+	<property name="module">asset</property>
 	<inner-layout>${themeprefix}/layouts/settingslayout.html</inner-layout>
 </page>
