@@ -1,0 +1,6 @@
+<page>
+	
+	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/publishing/publishassets.html" allowduplicates="true" />
+	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/push/queueassets.html" allowduplicates="true" />
+	
+</page>
