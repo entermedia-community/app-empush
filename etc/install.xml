@@ -15,7 +15,7 @@
  	
   <target name="update-dependencies" depends="clean">
 		<mkdir dir="${build}"/>
-		<get src="http://dev.entermediasoftware.com/jenkins/job/${appname}/lastSuccessfulBuild/artifact/deploy/${appname}.zip" dest="${build}/${appname}.zip" />
+		<get src="http://dev.entermediasoftware.com/jenkins/job/@BRANCH@${appname}/lastSuccessfulBuild/artifact/deploy/${appname}.zip" dest="${build}/${appname}.zip" />
   </target>
     
   <target name="unzip" depends="update-dependencies">
