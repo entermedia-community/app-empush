@@ -1,9 +1,9 @@
 
 <div class="overall">
 	<div class="monitor">
-		<span class="top">$pushrequestscomplete.size() of $pushrequests.size() Files Uploaded!</span>
+		<span class="top">$completedassets.size() of $assets.size() Assets Pushed!</span>
 		<div>
-			#set( $total = 685 * $mathutil.getPercentage($pushrequestscomplete.size() , $pushrequests.size()))
+			#set( $total = 685 * $mathutil.getPercentage($completedassets.size() , $assets.size()))
 			
 			<div class="progress-bar-container">
 				<div class="progress" style="width: ${total}px;"></div>
@@ -22,6 +22,7 @@
 		##<span class="bottom">Estimated Upload Date: April 26th, 9:00PM</span>
 	</div>
 </div>
+
 
 
 <script>

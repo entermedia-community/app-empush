@@ -1,0 +1,5 @@
+<page>
+	<path-action name="SyncModule.resetPushStatus" />
+	
+	<inner-layout />
+</page>

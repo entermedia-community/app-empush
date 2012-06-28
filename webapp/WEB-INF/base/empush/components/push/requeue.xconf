@@ -1,5 +1,0 @@
-<page>
-	<path-action name="SyncModule.addAssetToQueue" />
-	
-	<inner-layout />
-</page>
