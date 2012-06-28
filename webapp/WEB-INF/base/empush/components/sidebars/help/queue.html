@@ -6,21 +6,20 @@
 		<p>
 			Setup Hot Folders of local drives that will be pushed
 		</p>
-		<a class="btn" href="$home$apphome/views/settings/modules/asset/hotfolders/index.html">Hot Folders</a>
+		<a class="btn" href="$home$apphome/views/settings/modules/asset/hotfolders/index.html">Setup Hot Folders</a>
 
 		<p>
-			Add Assets will find missing assets that have not already been added to the queue.
+			Resets assets with errors so they will be pushed again
 		</p>
-			##<a class="btn red ajax"  targetdivinner="queuestatus" href="$home$apphome/components/push/clearqueue.html">Clear Queue</a>
-		<a class="ajax btn" targetdivinner="queuestatus"  href="$home$apphome/components/push/requeue.html">Add Assets</a>
-		<div id="queuestatus"></div>
+		<a class="ajax btn" targetdivinner="errorqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=error&newpushstatus=retry">Reset Errors</a>
+		<div id="errorqueuestatus"></div>
 
 		<p>
-			Remove All clears existing push requests.
+			Resets completed assets so they will be pushed again
 		</p>
-		<a class="ajax btn" targetdivinner="removequeuestatus"  href="$home$apphome/components/push/removeall.html">Remove All</a>
+		<a class="ajax btn" targetdivinner="resendqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=complete&newpushstatus=resend">Reset Completed</a>
 
-		<div id="removequeuestatus"></div>
+		<div id="resendqueuestatus"></div>
 
 	</div>	
 </div>

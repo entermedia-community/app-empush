@@ -3,11 +3,17 @@
 	<form name="settingssave" method="post" action="$home$apphome/views/emp-settings/save.html">
 		
 		<h2>Push Server Setup</h2>
+		<div class="hr"></div>
+
+		<input type="hidden" name="field" value="push_masterswitch" />
+
+		#set( $switch = $mediaarchive.getCatalogSettingValue("push_masterswitch") )
+		<div target="push_masterswitch" class="switch #if( $switch && $switch == "true")on #end"></div>
+		<input type="hidden" id="push_masterswitch" name="push_masterswitch.value" value="$switch" />
 		
-		#set( $enabled = $mediaarchive.getCatalogSettingValue("push_masterswitch") )
-		#if( $enabled != "true")
-			<h4>Push Queue is currently paused</h4>
-		#end
+
+		<div class="note">[[Turns on or off push.]]</div>
+
 		
 		<label>[[URL]]</label>
 		<input type="hidden" name="field" value="push_server_url" />
@@ -36,17 +42,7 @@
 ##		</div>
 	
 	
-	<div class="hr"></div>
 	
-		<h2>Automatic Pushing</h2>
-		<input type="hidden" name="field" value="push_autopush" />
-
-		#set( $switch = $mediaarchive.getCatalogSettingValue("push_autopush") )
-		<div target="push_autopush" class="switch #if( $switch && $switch == "true")on #end"></div>
-		<input type="hidden" id="push_autopush" name="push_autopush.value" value="$switch" />
-		
-
-		<div class="note">[[Automatically add new assets to queue to be pushed.]]</div>
 		<!-- hide if auto is off 
 		<div id="autotimes" style="display: none;">
 			<label>[[Push Between]]</label>
