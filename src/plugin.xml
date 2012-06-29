@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="assetImporter" class="org.openedit.entermedia.push.PushingAssetImporter"  singleton="false">
+		<property name="pageManager">
+			<ref bean="pageManager" />
+		</property>
+		<property name="assetUtilities">
+			<ref bean="assetUtilities" />
+		</property>
+		<property name="pushManager">
+			<ref bean="pushManager" />
+		</property>
+		<property name="urlMetadataImporters">
+			<list>
+				<ref bean="youtubeImporter" />
+				<ref bean="urlDownloadImporter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Not used 
+	<bean id="pushrequestSearcher" class="org.openedit.data.XmlFileSearcher"	singleton="false">
+		<property name="pageManager"><ref bean="pageManager" /></property>
+		<property name="xmlArchive"><ref bean="xmlArchive" /></property>
+		<property name="searcherManager"><ref bean="searcherManager" /></property>
+		<property name="rootDirectory"><ref bean="root" /></property>
+		<property name="prefix"><value>assets</value></property>
+	</bean>
+	-->
+</beans>
