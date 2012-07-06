@@ -3,44 +3,26 @@
 
 $pages.include("$apphome/views/queue/overall-progress.html",$context)
 
-<ul id="queue" class="fwlist">
-	#foreach( $request in $pushrequests.getPageOfHits() )
-		#set( $size = $sizer.inEnglish($request.get("assetfilesize") ) )
-		#set( $asset = $mediaarchive.getAssetBySourcePath($request.sourcePath) )
-	<li class="c-${request.status}">
-		<a href="$home$apphome/views/assets/$asset.sourcePath/index.html"  >
-			<div class="name default $asset.fileformat" title="$asset.sourcePath ($size)">
-				<span>$request.assetname </span><span class="status c-${request.status}" #if( $request.errordetails ) title="$request.errordetails" #end>$!searcherManager.getData($catalogid,"push/pushstatus",$request.status)</span>
-				<span class="p"> (</span><span class="filesize">$size</span><span class="p">)</span>
-			</div>
-			#set( $percent = $request.get("percentage"))
-			#if(  $percent && $percent != "0" )
-			<div class="progress-bar-container">
-				<div class="progress"></div>
-			</div>
-				<div class="percentage">${percent}%</div>
-			#end
-		</a>
-	</li>
-	#end
-</ul>
-
 
 #set( $pathEventManager = $moduleManager.getBean($catalogid,"pathEventManager") )
+
+#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/importing/importfolders.html") )
+<p>Step 1 #if( $event.isRunning() ) Importing assets. $assets.size() imported so far #else $assets.size() total assets #end</p>
+<a href="$home$apphome/views/categories/index.html">View $assets.size() assets</a>
+
+#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/conversions/runconversions.html") )
+<p>Step 2 Convert Assets thumbnails: #if( $event.isRunning() ) is #else not #end running</p>
+
 #set( $event = $pathEventManager.getPathEvent("/$catalogid/events/push/pushassets.html") )
 #if( !$event.isEnabled() )
-	<p>Push assets event is disabled</p>
+<p>Push assets event is disabled</p>
 #end
 
 #if( $event.isRunning() )
-	<p>Pushing Assets is running now</p>
+	<p>Step 3 Pushing Assets is running now</p>
 #else
-	<p>Toggle Pause button to push now</p>
+	<p>Step 3 Toggle Pause button to push now</p>
 #end	
-
-#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/conversions/runconversions.html") )
-	<p>Convert Assets thumbnails: #if( $event.isRunning() ) is #else not #end running</p>
-
 
 <p>
 <a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table">$completedassets.size() assets pushed</a> 

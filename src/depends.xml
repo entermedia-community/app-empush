@@ -1,0 +1,3 @@
+<plugin projectname="entermedia-ooffice">
+	<depend>entermedia-server</depend>
+</plugin>
