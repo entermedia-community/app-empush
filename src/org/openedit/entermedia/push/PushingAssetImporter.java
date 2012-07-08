@@ -32,25 +32,6 @@ public class PushingAssetImporter extends AssetImporter
 	}
 	protected void assetsImported( MediaArchive inArchive, java.util.List<Asset> inAssetsSaved)
 	{
-		String enabled = inArchive.getCatalogSettingValue("push_masterswitch");
-		if( "false".equals(enabled) )
-		{
-			log.info("Push is paused");
-			return;
-		}
-
-		Collection presets = inArchive.getCatalogSettingValues("push_convertpresets");
-
-		List tosave = new ArrayList();
-		//convert then save
-		for (Iterator iterator = inAssetsSaved.iterator(); iterator.hasNext();)
-		{
-			Asset asset = (Asset) iterator.next();
-			asset.setProperty("pushstatus", "notallconverted");
-			inArchive.fireMediaEvent("conversions/runconversion", null, asset);	//This will run right now, conflict?			
-			getPushManager().uploadPresets(inArchive, presets, null, asset, tosave);
-		}
-		inArchive.getAssetSearcher().saveAllData(tosave, null);
-
+		getPushManager().pushAssets(inArchive, inAssetsSaved);
 	};
 }

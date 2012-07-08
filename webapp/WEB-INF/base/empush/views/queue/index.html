@@ -3,37 +3,31 @@
 
 $pages.include("$apphome/views/queue/overall-progress.html",$context)
 
-
 #set( $pathEventManager = $moduleManager.getBean($catalogid,"pathEventManager") )
-
-#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/importing/importfolders.html") )
-<p>Step 1 #if( $event.isRunning() ) Importing assets. $assets.size() imported so far #else $assets.size() total assets #end</p>
-<a href="$home$apphome/views/categories/index.html">View $assets.size() assets</a>
-
-#set( $event = $pathEventManager.getPathEvent("/$catalogid/events/conversions/runconversions.html") )
-<p>Step 2 Convert Assets thumbnails: #if( $event.isRunning() ) is #else not #end running</p>
 
 #set( $event = $pathEventManager.getPathEvent("/$catalogid/events/push/pushassets.html") )
 #if( !$event.isEnabled() )
-<p>Push assets event is disabled</p>
-#end
+<p>Push assets event is disabled.</p>
+#else
 
 #if( $event.isRunning() )
-	<p>Step 3 Pushing Assets is running now</p>
+	<p class="info">Pushing Assets</p>
 #else
-	<p>Step 3 Toggle Pause button to push now</p>
+	<p class="info">Push Complete, toggle pause button to start push now</p>	
+#end
 #end	
 
+<h2>Stats</h2>
 <p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table">$completedassets.size() assets pushed</a> 
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"><b>$completedassets.size()</b> assets pushed</a> 
 </p>
 
 <p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table">$errorassets.size() assets had an error uploading</a> 
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"><b>$errorassets.size()</b> assets had an error uploading</a> 
 </p>
 
 <p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=notallconverted&operation=matches&resultstype=table">$notconverted.size() waiting on converted thumbnails</a> 
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=notallconverted&operation=matches&resultstype=table"><b>$notconverted.size()</b> waiting on converted thumbnails</a> 
 </p>
 
 </div>
