@@ -11,7 +11,6 @@
 			<div class="pause">
 			#set( $enabled = $mediaarchive.getCatalogSettingValue("push_masterswitch") )
 			#if( $enabled == "true")
-			
 				<a class="btn ajax" targetdivinner="queuestatuslist" style="width: 50px" href="$home$apphome/components/push/togglepush.html">Pause</a>
 			#else
 				<a class="btn ajax" targetdivinner="queuestatuslist" style="width: 50px" href="$home$apphome/components/push/togglepush.html">Resume</a>
