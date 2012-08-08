@@ -19,23 +19,7 @@
   </target>
     
   <target name="unzip" depends="update-dependencies">
-  	
-    <unzip  src="${build}/${appname}.zip" dest="${build}/unpacked" />
-  	
-	<echo>Delete old open edit libs</echo>
-    <delete>
-      <fileset dir="./lib" includes="app-empush**.jar"/>
-    </delete>
-    <copy todir="./lib" overwrite="false" preservelastmodified="true">
-      <fileset file="${build}/unpacked/lib/app-empush*.jar"/>
-    </copy>
-
-    <delete failonerror="false">
-       <fileset dir="../WEB-INF/base/empush/"/>
-     </delete>
-     <copy todir="../WEB-INF/base/empush" preservelastmodified="true">
-       <fileset dir="${build}/unpacked/base/empush"/>
-     </copy>
+    <unzip  src="${build}/${appname}.zip" dest="base" />
   </target>
  
 </project>
