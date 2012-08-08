@@ -23,7 +23,7 @@
   <script id="entermedia" src="/${applicationid}/components/javascript/entermedia.js"/>
   <script id="validateandedit" src="/${applicationid}/components/javascript/validateandedit.js">     </script>
   <script id="theme-js" src="/${applicationid}/components/javascript/ui-components.js"/>
-  <property name="fallbackdirectory">/WEB-INF/base/emfrontend</property>
+  <property name="fallbackdirectory">/WEB-INF/base/emshare</property>
   <property name="title">EM Push</property>
   <property name="showremoveselections">false</property>
   <property name="showaddselections">true</property>

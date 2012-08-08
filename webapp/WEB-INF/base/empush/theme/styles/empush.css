@@ -567,6 +567,7 @@ div#folders.add .folder {
 	background: #222 url('../images/asset-bg.png');
 	box-shadow: inset 0px 0px 60px 15px rgba(0, 0, 0, .8);
 	margin: -20px 0 0 -20px;
+	padding-right: 20px;
 }
 .overall .monitor {
 	width: 785px;
