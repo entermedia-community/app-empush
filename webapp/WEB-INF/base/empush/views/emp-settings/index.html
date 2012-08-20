@@ -37,55 +37,7 @@
 		<input class="field short" name="push_asset_prefix.value" value ="$!mediaarchive.getCatalogSettingValue("push_asset_prefix")" />
 		<div class="note">[[Added to the start of the asset ID for uploading]]</div>
 
-##		<div>
-##		<input type="button" class="btn" value="Test Connection" />
-##		</div>
 	
-	
-	
-		<!-- hide if auto is off 
-		<div id="autotimes" style="display: none;">
-			<label>[[Push Between]]</label>
-					
-			<input class="field vshort" name="between1" value ="" />
-			<span class="field-connector">And</span>
-			<input class="field vshort" name="between2" value ="" />
-			<div class="note">[[Enter the hours between which you would like the uploads to take place.]]</div>
-	
-		</div>
-		
-		-->
-	
-	<div class="hr"></div>
-
-		<h2>Push Formats</h2>
-	
-		<input type="hidden" name="field" value="push_convertpresets" >
-##		<div id="allnone">
-##			(<a href="javascript:selectall('publishdestinationcheckbox')">all</a><a href="javascript:selectnone('publishdestinationcheckbox')">none</a>)
-##		</div>
-		<a class="btn" href="$home$apphome/views/settings/applicationsetup/lists/transcoding/index.html" >Edit Presets</a>
-
-<table>
-	<tr>
-	#set( $lsearcher = $searcherManager.getSearcher($catalogid,"convertpreset"))
-	#set ($query = $lsearcher.createSearchQuery())
-	#set ($o = $query.addMatches("id", "*"))
-	$query.setSortBy("ordering")
-
-	#set( $values = $mediaarchive.getCatalogSettingValues("push_convertpresets") )
-	#set( $types = $lsearcher.search($query) )	
-	#foreach( $type in $types )
-		#set( $key = $type.id)
-			<td>
-	  	<input type="checkbox" name="push_convertpresets.value" value="$key"
-	    #if ($values.contains($key)) checked #end >
-		$type
-	</td> 
-	#if ($velocityCount % 4 == 0) </tr> <tr> #end	    		
-#end
-</tr>
-</table>
 	<input type="submit" class="btn" style="margin-top: 15px" value="Save" /> 
 </div>
 

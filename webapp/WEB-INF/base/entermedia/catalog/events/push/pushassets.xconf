@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Push Assets</property>	
+	<property name="eventdescription">Push assets to a remote server</property>	
+	<property name="period">5m</property>
+	<property name="enabled">false</property>
+	<path-action name="SyncModule.processPushQueue" allowduplicates="true" />
+</page>
