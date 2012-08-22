@@ -18,16 +18,35 @@ $pages.include("$apphome/views/queue/overall-progress.html",$context)
 #end	
 
 <h2>Stats</h2>
+
 <p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"><b>$completedassets.size()</b> assets pushed</a> 
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=notallconverted&operation=matches&resultstype=table"><b>$notconverted.size()</b> waiting on import to complete</a> 
 </p>
+		<a class="ajax btn" targetdivinner="resendimport"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=notallconverted&newpushstatus=resend">Reset Waiting on Import</a>
+		<div id="resendimport"></div>
+
+<p>
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table"><b>$nogenerated.size()</b> assets not pushed due to lack of thumbnails</a> 
+</p>
+		<a class="ajax btn" targetdivinner="resendgenerated"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=nogenerated&newpushstatus=resend">Reset Lacking Thumbnails</a>
+		<div id="resendgenerated"></div>
+
 
 <p>
 <a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"><b>$errorassets.size()</b> assets had an error uploading</a> 
 </p>
+		<a class="ajax btn" targetdivinner="errorqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=error&newpushstatus=retry">Reset Errors</a>
+		<div id="errorqueuestatus"></div>
+
+
 
 <p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=notallconverted&operation=matches&resultstype=table"><b>$notconverted.size()</b> waiting on converted thumbnails</a> 
+<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"><b>$completedassets.size()</b> assets pushed</a> 
 </p>
+		<a class="ajax btn" targetdivinner="resendqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=complete&newpushstatus=resend">Reset Pushed Assets</a>
+		<div id="resendqueuestatus"></div>
+
+
+
 
 </div>

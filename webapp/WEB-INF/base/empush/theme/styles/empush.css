@@ -210,7 +210,6 @@ input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
 /* FULL WIDTH LIST STYLES */
 
 .fwlist, .fw {
-	margin: -20px 0 0 -20px;
 	padding: 0;
 	width: 857px;
 }

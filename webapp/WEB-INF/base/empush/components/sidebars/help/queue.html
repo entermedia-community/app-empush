@@ -9,17 +9,17 @@
 		<a class="btn" href="$home$apphome/views/settings/modules/asset/hotfolders/index.html">Hot Folders</a>
 
 		<p>
-			Resets assets with push errors so they will be pushed again
+			Scheduler
 		</p>
-		<a class="ajax btn" targetdivinner="errorqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=error&newpushstatus=retry">Reset Errors</a>
-		<div id="errorqueuestatus"></div>
+		<a class="btn" href="$home$apphome/views/settings/events/triggers/edit/edit.html?eventpath=/${catalogid}/events/importing/importfolders.html">Importing</a><br>
+		<a class="btn" href="$home$apphome/views/settings/events/triggers/edit/edit.html?eventpath=/${catalogid}/events/push/pushassets.html">Pushing</a><br>
+		<a class="btn" href="$home$apphome/views/settings/events/triggers/edit/edit.html?eventpath=/${catalogid}/events/push/pollremotepublish.html">Publishing</a>
+
 
 		<p>
-			Resets completed assets so they will be pushed again
+			Database
 		</p>
-		<a class="ajax btn" targetdivinner="resendqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=complete&newpushstatus=resend">Reset Completed</a>
-
-		<div id="resendqueuestatus"></div>
-
+		<a class="btn" href="$home$apphome//views/settings/lists/datamanager/list/index.html?searchtype=conversiontask">Conversion Queue</a><br>
+		<a class="btn" href="$home$apphome//views/settings/lists/datamanager/list/index.html?searchtype=publishqueue">Publish Queue</a><br>
 	</div>	
 </div>
