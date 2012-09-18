@@ -33,14 +33,14 @@ $pages.include("$apphome/views/queue/overall-progress.html",$context)
 				<h2>Pushing ($importcomplete.size())</h2>
 				<div class="progress-bar-container">
 					<a class="error" style="width: ${pusherrorwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"></a>
-					<a class="nogenerated" style="width: ${pushnogeneratedwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"></a>
+					<a class="nogenerated" style="width: ${pushnogeneratedwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table"></a>
 					<a class="complete" style="width: ${pushcompletewidth}px;" class="success" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"></a>
 					<a class="pending" style="width: ${pushpendingwidth}px;" class="pending" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=pending&operation=matches&resultstype=table"></a>
 				</div>
 				<p class="details">
 					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table">$pusherror.size() Errors</a> / 
-					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table">$nogenerated.size() Not Pushed</a> / 
-					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=pending&operation=matches&resultstype=table">$pushcomplete.size() Pushed</a> /
+					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table">$nogenerated.size() Not Pushed</a> / 
+					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table">$pushcomplete.size() Pushed</a> /
 					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=pending&operation=matches&resultstype=table">$pushpending.size() Pending</a> 
 				</p>
 			</div>
