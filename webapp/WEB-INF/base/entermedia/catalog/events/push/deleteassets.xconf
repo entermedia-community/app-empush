@@ -1,0 +1,7 @@
+<page>
+	<property name="eventname">Push Deleted Assets</property>	
+	<property name="eventdescription">Mark assets on a remote server deleted</property>	
+	<property name="period">5m</property>
+	<property name="enabled">false</property>
+	<path-action name="SyncModule.processDeletedAssets" allowduplicates="true" />
+</page>

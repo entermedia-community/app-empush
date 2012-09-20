@@ -31,7 +31,7 @@ $pages.include("$apphome/views/queue/overall-progress.html",$context)
 
 		    <div class="barholder">
 				<h2>Pushing ($importcomplete.size())</h2>
-				#set( $pendinglink = "$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&field=pushstatus&pushstatus.value=complete&operation=not&field=pushstatus&pushstatus.value=nogenerated&operation=not&field=pushstatus&pushstatus.value=error&operation=not")
+				#set( $pendinglink = "$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&field=pushstatus&pushstatus.value=complete&operation=not&field=pushstatus&pushstatus.value=nogenerated&operation=not&field=pushstatus&pushstatus.value=error&operation=not&pushstatus.value=deleted&operation=not")
 				<div class="progress-bar-container">
 					<a class="error" title="Push Error" style="width: ${pusherrorwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"></a>
 					<a class="nogenerated" title="No Images" style="width: ${pushnogeneratedwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table"></a>
