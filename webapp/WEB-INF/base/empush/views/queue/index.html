@@ -5,29 +5,78 @@ $pages.include("$apphome/views/queue/overall-progress.html",$context)
 
 #set( $pathEventManager = $moduleManager.getBean($catalogid,"pathEventManager") )
 
+			#set( $importingtotalcompletewidth = 500 * $mathutil.getPercentage($importcomplete.size(), $assets.size()))
+			#set( $importingtotalerrorswidth = 500 * $mathutil.getPercentage($importerror.size(), $assets.size()))
+			#set( $importingtotalpendingwidth = 500 * $mathutil.getPercentage($importpending.size(), $assets.size()))
+
+			<div class="barholder">
+				<h2>Importing ($assets.size())</h2>
+				<div class="progress-bar-container">
+					<a  title="Import Error" class="error" style="width: ${importingtotalerrorswidth}px;" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table"></a>
+					<a  title="Import Complete"  class="complete" style="width: ${importingtotalcompletewidth}px;" class="success" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table"></a>
+					<a  title="Import Pending" class="pending" style="width: ${importingtotalpendingwidth}px;" class="pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&resultstype=table"></a>
+				</div>
+				<p class="details">
+					<a title="Import Error" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table">$importerror.size() Errors</a> / 
+					<a title="Import Complete" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table">$importcomplete.size() Ready To Push </a> / 
+					<a title="Import Pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&resultstype=table">$importpending.size() Imported</a> 
+				</p>
+		    </div>
+
+			#set( $pusherrorwidth = 500 * $mathutil.getPercentage($pusherror.size(), $importcomplete.size()))
+			#set( $pushnogeneratedwidth = 500 * $mathutil.getPercentage($nogenerated.size(), $importcomplete.size()))
+			#set( $pushcompletewidth = 500 * $mathutil.getPercentage($pushcomplete.size(), $importcomplete.size()))
+			#set( $pushpendingwidth = 500 * $mathutil.getPercentage($pushpending.size(), $importcomplete.size()))
+
+
+		    <div class="barholder">
+				<h2>Pushing ($importcomplete.size())</h2>
+				#set( $pendinglink = "$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&field=pushstatus&pushstatus.value=complete&operation=not&field=pushstatus&pushstatus.value=nogenerated&operation=not&field=pushstatus&pushstatus.value=error&operation=not&field=pushstatus&pushstatus.value=deleted&operation=not")
+				<div class="progress-bar-container">
+					<a class="error" title="Push Error" style="width: ${pusherrorwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"></a>
+					<a class="nogenerated" title="No Images" style="width: ${pushnogeneratedwidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table"></a>
+					<a class="complete" title="Complete" style="width: ${pushcompletewidth}px;" href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"></a>
+					<a class="pending" title="Pending" style="width: ${pushpendingwidth}px;"  href="$pendinglink"></a>
+				</div>
+				<p class="details">
+					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table">$pusherror.size() Errors</a> / 
+					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=nogenerated&operation=matches&resultstype=table">$nogenerated.size() Not Pushed</a> / 
+					<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table">$pushcomplete.size() Pushed</a> /
+					<a href="$pendinglink">$pushpending.size() Pending</a> 
+				</p>
+			</div>
+
+<div class="info">
+
+<h2>Help</h2>
 #set( $event = $pathEventManager.getPathEvent("/$catalogid/events/push/pushassets.html") )
 #if( !$event.isEnabled() )
 <p>Push assets event is disabled.</p>
 #else
 
 #if( $event.isRunning() )
-	<p class="info">Pushing Assets</p>
+	Pushing Assets
 #else
-	<p class="info">Push Complete, toggle pause button to start push now</p>	
+<div>
+<a class="btn ajax" href="$home$apphome/views/settings/events/triggers/run.html?forcerun=true&runpath=/${catalogid}/events/push/pushassets.html&oemaxlevel=1" targetdivinner="eventstatus">Push Now</a>
+</div>
 #end
 #end	
 
-<h2>Stats</h2>
-<p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=complete&operation=matches&resultstype=table"><b>$completedassets.size()</b> assets pushed</a> 
-</p>
+		<a class="ajax btn" targetdivinner="resendgenerated"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=nogenerated&newpushstatus=resend" data-confirm="Are you sure?" >Retry not pushed assets</a>
+		<div id="resendgenerated"></div>
+		<a class="ajax btn" targetdivinner="errorqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=error&newpushstatus=retry"  data-confirm="Are you sure?">Retry push errors</a>
+		<div id="errorqueuestatus"></div>
 
-<p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=error&operation=matches&resultstype=table"><b>$errorassets.size()</b> assets had an error uploading</a> 
-</p>
+		<a class="ajax btn" targetdivinner="resendqueuestatus"  href="$home$apphome/components/push/resetstatus.html?oldpushstatus=complete&newpushstatus=resend" data-confirm="Are you sure?" >Re-push All Assets</a>
+		<div id="resendqueuestatus"></div>
 
-<p>
-<a href="$home$apphome/views/search/search.html?field=pushstatus&pushstatus.value=notallconverted&operation=matches&resultstype=table"><b>$notconverted.size()</b> waiting on converted thumbnails</a> 
-</p>
+<div>
+<a class="btn ajax" href="$home$apphome/views/settings/events/triggers/run.html?forcerun=true&runpath=/${catalogid}/events/conversions/runconversions.html&oemaxlevel=1" targetdivinner="eventstatus">Run Conversions</a>
+</div>
+
 
 </div>
+
+</div>
+

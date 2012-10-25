@@ -1,0 +1,6 @@
+<page>
+	<property name="eventname">Poll Remote Publish</property>	
+	<path-action name="SyncModule.pollRemotePublish" allowduplicates="true" />
+	<!-- Dont put a period on this otherwise it will not allow parameters -->
+	<!-- it will be called by assetsimported event -->
+</page>
