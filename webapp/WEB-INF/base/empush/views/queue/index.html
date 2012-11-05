@@ -12,14 +12,14 @@ $pages.include("$apphome/views/queue/overall-progress.html",$context)
 			<div class="barholder">
 				<h2>Importing ($assets.size())</h2>
 				<div class="progress-bar-container">
-					<a  title="Import Error" class="error" style="width: ${importingtotalerrorswidth}px;" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table"></a>
-					<a  title="Import Complete"  class="complete" style="width: ${importingtotalcompletewidth}px;" class="success" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table"></a>
-					<a  title="Import Pending" class="pending" style="width: ${importingtotalpendingwidth}px;" class="pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&resultstype=table"></a>
+					<a  title="Import Error" class="error" style="width: ${importingtotalerrorswidth}px;" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table&field=editstatus&editstatus.value=7&operation=not"></a>
+					<a  title="Import Complete"  class="complete" style="width: ${importingtotalcompletewidth}px;" class="success" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table&field=editstatus&editstatus.value=7&operation=not"></a>
+					<a  title="Import Pending" class="pending" style="width: ${importingtotalpendingwidth}px;" class="pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&field=editstatus&editstatus.value=7&operation=not&resultstype=table"></a>
 				</div>
 				<p class="details">
-					<a title="Import Error" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table">$importerror.size() Errors</a> / 
-					<a title="Import Complete" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table">$importcomplete.size() Ready To Push </a> / 
-					<a title="Import Pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&resultstype=table">$importpending.size() Imported</a> 
+					<a title="Import Error" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=error&operation=matches&resultstype=table&field=editstatus&editstatus.value=7&operation=not">$importerror.size() Errors</a> / 
+					<a title="Import Complete" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=complete&operation=matches&resultstype=table&field=editstatus&editstatus.value=7&operation=not">$importcomplete.size() Ready To Push </a> / 
+					<a title="Import Pending" href="$home$apphome/views/search/search.html?field=importstatus&importstatus.value=imported&operation=matches&resultstype=table&field=editstatus&editstatus.value=7&operation=not">$importpending.size() Imported</a> 
 				</p>
 		    </div>
 
