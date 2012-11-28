@@ -1,0 +1,6 @@
+<page>
+
+	<!-- Dont pass in ID's or this will mark the assets as not generated yet -->
+	<path-action name="PathEventModule.runSharedEvent" runpath="/${catalogid}/events/push/pushassets.html"  allowduplicates="true"/>
+	
+</page>
