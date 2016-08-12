@@ -1,7 +1,7 @@
-importPackage( Packages.com.openedit.util );
+importPackage( Packages.org.openedit.util );
 importPackage( Packages.java.util );
 importPackage( Packages.java.lang );
-importPackage( Packages.com.openedit.modules.update );
+importPackage( Packages.org.entermediadb.modules.update );
 
 var appname = "app-empush";
 var foldername = "empush";
