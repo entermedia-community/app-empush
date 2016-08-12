@@ -2,6 +2,6 @@
 	<page-action name="SyncModule.loadQueue" />
 	<page-action name="PageValue.loadPageVariable" bean="moduleManager" />	
 	<page-action name="PageValue.loadPageVariable" bean="sizer" />	
-	<page-action name="PageValue.loadPageVariable" bean="mathutil" class="org.openedit.entermedia.util.MathUtils" />	
+	<page-action name="PageValue.loadPageVariable" bean="mathutil" />	
 	
 </page>
