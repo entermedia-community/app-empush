@@ -19,12 +19,12 @@ downloader.download( zip, tmp + "/" + appname + ".zip");
 var files = new FileUtils();
 files.deleteAll( root + "/WEB-INF/base/" + foldername);
 
-log.add("2. UNZIP WAR FILE");
+log.info("2. UNZIP WAR FILE");
 var unziper = new ZipUtil();
 unziper.unzip(  tmp + "/" + appname + ".zip",  root );
 
 
-log.add("3. CLEAN UP");
+log.info("3. CLEAN UP");
 files.deleteAll(tmp);
 
 log.add("5. UPGRADE COMPLETED");
