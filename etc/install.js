@@ -12,7 +12,7 @@ var zip = "http://dev.entermediasoftware.com/jenkins/job/@BRANCH@" + appname + "
 var root = moduleManager.getBean("root").getAbsolutePath();
 var tmp = root + "/WEB-INF/tmp";
 
-log.add("1. GET THE LATEST ZIP FILE for " + appname);
+log.info("1. GET THE LATEST ZIP FILE for " + appname);
 var downloader = new Downloader();
 downloader.download( zip, tmp + "/" + appname + ".zip");
 
@@ -27,4 +27,4 @@ unziper.unzip(  tmp + "/" + appname + ".zip",  root );
 log.info("3. CLEAN UP");
 files.deleteAll(tmp);
 
-log.add("5. UPGRADE COMPLETED");
+log.info("5. UPGRADE COMPLETED");
