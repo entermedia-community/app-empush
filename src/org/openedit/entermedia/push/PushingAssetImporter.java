@@ -6,6 +6,7 @@ import org.entermediadb.asset.Asset;
 import org.entermediadb.asset.MediaArchive;
 import org.entermediadb.asset.push.PushManager;
 import org.entermediadb.asset.scanner.AssetImporter;
+
 public class PushingAssetImporter extends AssetImporter
 {
 	private static final Log log = LogFactory.getLog(PushingAssetImporter.class);

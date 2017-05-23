@@ -44,8 +44,13 @@
 			 		      <filter token="BRANCH" value="${branch}"/>
 			 		    </filterset>
 			 	</copy>	
-		 	<copy file="${etc}/install.xml" overwrite="true"
-		        tofile="${deployDir}/install.xml">
+		 	<copy file="${etc}/pushextension.xml" overwrite="true"
+		        tofile="${deployDir}/pushextension.xml">
+		 		</copy>
+		 		<copy file="${etc}/install.xml" overwrite="true"
+		 				        tofile="${deployDir}/install.xml">
+		 		
+		 		
 			 <filterset>
 					 		      <filter token="BRANCH" value="${branch}"/>
 					 		    </filterset>
